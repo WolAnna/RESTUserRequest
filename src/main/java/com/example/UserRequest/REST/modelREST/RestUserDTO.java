@@ -15,7 +15,6 @@ public class RestUserDTO {
     private String avatar_url;
     private String created_at;
     private Double calculations;
-    private String test;
 
     public RestUserDTO(GitHubUserDTO gitHubUserDTO){
         this.id = gitHubUserDTO.getId();
@@ -37,7 +36,7 @@ public class RestUserDTO {
         if (intFollowers == 0)
             calculations = 0D;
         else
-            calculations = (double)(6/intFollowers.doubleValue())*(2+intPublicRes.doubleValue());
+            calculations = (6/intFollowers.doubleValue())*(2+intPublicRes.doubleValue());
     }
 
 }
