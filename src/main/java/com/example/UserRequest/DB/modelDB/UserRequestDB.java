@@ -18,7 +18,7 @@ public class UserRequestDB {
 
     public UserRequestDB(String login) {
         this.login = login;
-        this.requestCount = 1;
+        this.requestCount = 0;
     }
     public void IncreaseRequestCount() {
         requestCount++;

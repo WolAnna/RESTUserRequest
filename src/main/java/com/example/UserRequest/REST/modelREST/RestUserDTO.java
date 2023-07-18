@@ -2,18 +2,20 @@ package com.example.UserRequest.REST.modelREST;
 
 import com.example.UserRequest.webclient.dto.GitHubUserDTO;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Setter @Getter
 @ToString
+@RequiredArgsConstructor
 public class RestUserDTO {
     private Integer id;
     private String login;
     private String name;
     private String type;
-    private String avatar_url;
-    private String created_at;
+    private String avatarUrl;
+    private String createdAt;
     private Double calculations;
 
     public RestUserDTO(GitHubUserDTO gitHubUserDTO){
@@ -21,8 +23,8 @@ public class RestUserDTO {
         this.login = gitHubUserDTO.getLogin();
         this.name = gitHubUserDTO.getName();
         this.type = gitHubUserDTO.getType();
-        this.avatar_url = gitHubUserDTO.getAvatar_url();
-        this.created_at = gitHubUserDTO.getCreated_at();
+        this.avatarUrl = gitHubUserDTO.getAvatar_url();
+        this.createdAt = gitHubUserDTO.getCreated_at();
         setCalculation(gitHubUserDTO.getFollowers(), gitHubUserDTO.getPublic_repos());
     }
 
@@ -34,9 +36,9 @@ public class RestUserDTO {
             intPublicRes = 0;
 
         if (intFollowers == 0)
-            calculations = 0D;
+            calculations = 0d;
         else
-            calculations = (6/intFollowers.doubleValue())*(2+intPublicRes.doubleValue());
+            calculations = 6/intFollowers.doubleValue()*(2+intPublicRes.doubleValue());
     }
 
 }

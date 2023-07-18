@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 @Component
 public class DBClient {
-
     private final UserRequestRepository userRequestRepository;
 
     public void saveRequestByLogin(String login) {
@@ -16,8 +15,8 @@ public class DBClient {
 
         if (user == null)//nie ma użytkownika w BD
             user = new UserRequestDB(login);
-        else
-            user.IncreaseRequestCount();
+
+        user.IncreaseRequestCount();
 
         userRequestRepository.save(user);
     }
